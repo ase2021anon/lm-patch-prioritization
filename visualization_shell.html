@@ -1,0 +1,102 @@
+<html>
+<head>
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+pre {
+  font-size:large;
+}
+    
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/* The actual popup */
+.gt .pt {
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 8px 8px;
+  position: absolute;
+  z-index: 1;
+  margin-left: -40px;
+  font-size:medium;
+}
+
+/* Popup arrow */
+.gt .pt::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.gt .show {
+  visibility: visible;
+}
+</style>
+</head>
+<body>
+<h1>%s</h1>
+%s
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+var tokens = document.getElementsByClassName("gt");
+for (i = 0; i < tokens.length; i++) {
+	tokens[i].addEventListener("click", function() {
+    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+  	var my_rect = this.getBoundingClientRect();
+    var x_loc = my_rect.left;
+    var y_loc = my_rect.top;
+    var width = my_rect.width;
+    var height = my_rect.height;
+    var top_k_preds = this.childNodes[1];
+    popup_width = top_k_preds.getBoundingClientRect().width;
+    popup_height = top_k_preds.getBoundingClientRect().height;
+    top_k_preds.style.left=x_loc+'px';
+    top_k_preds.style.marginLeft=((width-popup_width)/2)+'px';
+    top_k_preds.style.top=scrollTop+y_loc+'px';
+    top_k_preds.style.marginTop=(-(height/2+popup_height))+'px';
+    top_k_preds.classList.toggle("show");
+  });
+}
+</script>
+</body>
+</html>
