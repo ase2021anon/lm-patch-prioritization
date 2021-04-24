@@ -331,7 +331,6 @@ if __name__ == "__main__":
     else:
         name2susp = {name: 1. for name in name2nat.keys()}
     save_to_csv(args.nat_csv, name2nat, name2susp)
-    present_results(name2nat, name2susp, args.top_n, args.only_plausible==1)
 
     name2bpe = get_patch_reps(args.eval_file)
     get_visualization(name2bpe, name2nat, name2susp, vocab2idx, lm, target_file=args.visualization_file)

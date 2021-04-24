@@ -1,4 +1,3 @@
-### We want to order resulting patches by their naturalness.
 #!/bin/bash
 
 CLASS=$1 # defects4j project name (e.g. Chart)
