@@ -12,7 +12,7 @@ Code for the ASE 2021 submission [Language Models Can Prioritize Patches for Pra
 ### Setup
  1. Decompress the `patch_data/tool_patches.tar.gz` file, which has generated patches from 5 APR tools. The decompressed size is 773MB.
  2. The srcML files for all the patches must be generated before the next step. An example script that does this for the TBar-generated tools is provided in `patch_processing.sh`. 
- 3. Get the pretrained model from this [Google Drive link](https://drive.google.com/file/d/1En3lXGA1SxfxneA6kezPgKVJm3mdeZhn/view?usp=sharing).
+ 3. Get the pretrained model from this [Zenodo link](https://zenodo.org/record/4717485).
  4. Edit the `order_by_nat.sh` script parameters; for example, make sure the `XML_DIR` is pointing toward the directory in which the srcML XML files reside, among others. Look to the script comments for descriptions of each parameter.
  5. `pip install -r requirements.txt`
  
